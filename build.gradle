@@ -9,9 +9,8 @@ buildscript {
 }
 
 plugins {
-    id 'eclipse'
     id 'idea'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'net.minecraftforge.gradle' version '5.1.+'
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -19,19 +18,14 @@ apply plugin: 'org.spongepowered.mixin'
 group = mod_group_id
 version = minecraft_version + '-' + mod_version
 
-base {
-    archivesName = mod_id
-}
-
 java {
+    archivesBaseName = mod_name
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
 minecraft {
 
     mappings channel: mapping_channel, version: mapping_version
-
-    copyIdeResources = true
 
     runs {
         client {
