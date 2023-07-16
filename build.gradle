@@ -1,29 +1,13 @@
-buildscript {
-    repositories {
-        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-    }
-}
-
 plugins {
-    id 'eclipse'
     id 'idea'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'net.minecraftforge.gradle' version '5.1.+'
 }
-
-apply plugin: 'org.spongepowered.mixin'
 
 group = mod_group_id
 version = minecraft_version + '-' + mod_version
 
-base {
-    archivesName = mod_id
-}
-
 java {
+    archivesBaseName = mod_id
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
@@ -66,9 +50,7 @@ minecraft {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
-
             property 'forge.enabledGameTestNamespaces', mod_id
 
             mods {
@@ -95,12 +77,6 @@ minecraft {
     }
 }
 
-mixin {
-    add sourceSets.main, "${mod_id}.refmap.json"
-
-    config "${mod_id}.mixins.json"
-}
-
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
@@ -110,8 +86,6 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
