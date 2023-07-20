@@ -9,6 +9,14 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+def generatedResources = file("src/generated")
+
+sourceSets {
+    main {
+        resources.srcDir generatedResources
+    }
+}
+
 loom {
     silentMojangMappingsLicense()
 
@@ -16,6 +24,16 @@ loom {
         mixinConfigs = [
                 "cobreacy.mixins.json"
         ]
+    }
+
+    //https://docs.architectury.dev/loom/datagen
+    runs {
+        data {
+            data()
+            programArgs "--all", "--mod", "${project.mod_id}"
+            programArgs "--output", generatedResources.absolutePath
+            programArgs "--existing", file("src/main/resources").absolutePath
+        }
     }
 }
 
