@@ -4,7 +4,7 @@ license="MIT"
 
 [[mods]]
 modId="cobreacy"
-version="${mod_version}"
+version="${version}"
 displayName="Cobreacy"
 authors="HO-Artisan"
 description='''${mod_description}'''
