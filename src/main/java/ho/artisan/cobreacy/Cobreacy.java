@@ -2,6 +2,7 @@ package ho.artisan.cobreacy;
 
 import com.mojang.logging.LogUtils;
 import ho.artisan.cobreacy.init.CBBlocks;
+import ho.artisan.cobreacy.init.CBFluids;
 import ho.artisan.cobreacy.init.CBItems;
 import ho.artisan.cobreacy.init.CBTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -16,7 +17,6 @@ import org.slf4j.Logger;
 
 @Mod(Cobreacy.MODID)
 public class Cobreacy {
-
     public static final String MODID = "cobreacy";
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -26,6 +26,7 @@ public class Cobreacy {
         CBItems.ITEMS.register(bus);
         CBBlocks.BLOCKS.register(bus);
         CBTabs.TABS.register(bus);
+        CBFluids.FLUIDS.register(bus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

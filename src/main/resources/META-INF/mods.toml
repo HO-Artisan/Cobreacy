@@ -7,16 +7,20 @@ modId="cobreacy"
 version="${version}"
 displayName="Cobreacy"
 authors="HO-Artisan"
-description='''${mod_description}'''
+description='''
+Cobreacy
+'''
+
 [[dependencies.cobreacy]]
    modId="forge"
    mandatory=true
    versionRange="[47,)"
    ordering="NONE"
    side="BOTH"
+
 [[dependencies.cobreacy]]
    modId="minecraft"
    mandatory=true
-   versionRange="[1.20.1,1.21)"
+   versionRange="[1.20,)"
    ordering="NONE"
    side="BOTH"

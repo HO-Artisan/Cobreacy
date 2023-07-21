@@ -6,7 +6,6 @@ import ho.artisan.cobreacy.init.CBItems;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
@@ -17,8 +16,7 @@ public abstract class FermentationFluid extends ForgeFlowingFluid {
     }
 
     public static class Flowing extends FermentationFluid {
-        public Flowing()
-        {
+        public Flowing() {
             super();
             registerDefaultState(getStateDefinition().any().setValue(LEVEL, 7));
         }
@@ -38,8 +36,7 @@ public abstract class FermentationFluid extends ForgeFlowingFluid {
     }
 
     public static class Source extends FermentationFluid {
-        public Source()
-        {
+        public Source() {
             super();
         }
 
@@ -51,6 +48,4 @@ public abstract class FermentationFluid extends ForgeFlowingFluid {
             return true;
         }
     }
-
-
 }
