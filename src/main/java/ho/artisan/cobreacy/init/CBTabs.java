@@ -1,4 +1,4 @@
-package ho.artisan.cobreacy.index;
+package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
 import net.minecraft.core.registries.Registries;

@@ -1,9 +1,9 @@
 package ho.artisan.cobreacy;
 
 import com.mojang.logging.LogUtils;
-import ho.artisan.cobreacy.index.CBBlocks;
-import ho.artisan.cobreacy.index.CBItems;
-import ho.artisan.cobreacy.index.CBTabs;
+import ho.artisan.cobreacy.init.CBBlocks;
+import ho.artisan.cobreacy.init.CBItems;
+import ho.artisan.cobreacy.init.CBTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
