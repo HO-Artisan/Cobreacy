@@ -9,13 +9,13 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
-public abstract class FermentationFluid extends ForgeFlowingFluid {
-    protected FermentationFluid() {
-        super(new Properties(() -> new FluidType(FluidType.Properties.create()), CBFluids.FERMENTATION_FLUID, CBFluids.FLOWING_FERMENTATION_FLUID)
-                .bucket(CBItems.FERMENTATION_FLUID_BUCKET).block(CBBlocks.FERMENTATION_FLUID_BLOCK));
+public abstract class CreblankFluid extends ForgeFlowingFluid {
+    protected CreblankFluid() {
+        super(new Properties(() -> new FluidType(FluidType.Properties.create()), CBFluids.CREBLANK_FLUID, CBFluids.FLOWING_CREBLANK_FLUID)
+                .bucket(CBItems.CREBLANK_FLUID_BUCKET).block(CBBlocks.CREBLANK_FLUID_BLOCK));
     }
 
-    public static class Flowing extends FermentationFluid {
+    public static class Flowing extends CreblankFluid {
         public Flowing() {
             super();
             registerDefaultState(getStateDefinition().any().setValue(LEVEL, 7));
@@ -35,7 +35,7 @@ public abstract class FermentationFluid extends ForgeFlowingFluid {
         }
     }
 
-    public static class Source extends FermentationFluid {
+    public static class Source extends CreblankFluid {
         public Source() {
             super();
         }

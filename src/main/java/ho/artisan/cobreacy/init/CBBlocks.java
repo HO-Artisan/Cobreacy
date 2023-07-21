@@ -17,9 +17,9 @@ import java.util.function.Supplier;
 public class CBBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, Cobreacy.MODID);
 
-    public static final RegistryObject<LiquidBlock> FERMENTATION_FLUID_BLOCK;
+    public static final RegistryObject<LiquidBlock> CREBLANK_FLUID_BLOCK;
 
     static {
-        FERMENTATION_FLUID_BLOCK = BLOCKS.register("fermentation_fluid_block", () -> new LiquidBlock(CBFluids.FERMENTATION_FLUID, BlockBehaviour.Properties.of().mapColor(MapColor.WATER).replaceable().noCollission().strength(100.0F).pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
+        CREBLANK_FLUID_BLOCK = BLOCKS.register("creblank_fluid_block", () -> new LiquidBlock(CBFluids.CREBLANK_FLUID, BlockBehaviour.Properties.of().mapColor(MapColor.WATER).replaceable().noCollission().strength(100.0F).pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
     }
 }

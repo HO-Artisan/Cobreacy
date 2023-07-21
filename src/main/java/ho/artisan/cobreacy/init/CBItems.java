@@ -2,6 +2,7 @@ package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -11,9 +12,51 @@ import net.minecraftforge.registries.RegistryObject;
 public class CBItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, Cobreacy.MODID);
 
-    public static final RegistryObject<Item> FERMENTATION_FLUID_BUCKET;
+    //Bread
+    public static final RegistryObject<Item> BAGEL;
+    public static final RegistryObject<Item> BLAZE_BREAD;
+    public static final RegistryObject<Item> BRIOCHE;
+    public static final RegistryObject<Item> CREAM_BREAD;
+    public static final RegistryObject<Item> JELLYFISH_DINNER_ROLL;
+    public static final RegistryObject<Item> NETHER_WART_BREAD;
+    public static final RegistryObject<Item> SLIME_BREAD;
+    public static final RegistryObject<Item> TIGER_BLOOMER;
+    public static final RegistryObject<Item> TOAST;
+
+    //Materials
+    public static final RegistryObject<Item> BLAZE_POWDER_BLANK;
+    public static final RegistryObject<Item> FLOUR;
+    public static final RegistryObject<Item> FLOUR_BREAD_BLANK;
+    public static final RegistryObject<Item> NETHER_WART_BLANK;
+    public static final RegistryObject<Item> SLIME_BLANK;
+
+    public static final RegistryObject<Item> BLAZE_POWDER_SACK;
+    public static final RegistryObject<Item> NETHER_WART_POWDER_SACK;
+    public static final RegistryObject<Item> SLIME_SACK;
+
+    //Misc
+    public static final RegistryObject<Item> CREBLANK_FLUID_BUCKET;
+    public static final RegistryObject<Item> EMPTY_SACK;
 
     static {
-        FERMENTATION_FLUID_BUCKET = ITEMS.register("fermentation_fluid_bucket", () -> new BucketItem(CBFluids.FERMENTATION_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+        BAGEL = register("bagel", new Item.Properties().food(CBFoodProperties.BAGEL));
+        BLAZE_BREAD = register("blaze_bread", new Item.Properties().food(CBFoodProperties.BLAZE_BREAD));
+        BRIOCHE = register("brioche", new Item.Properties().food(CBFoodProperties.BRIOCHE));
+        CREAM_BREAD = register("cream_bread", new Item.Properties().food(CBFoodProperties.CREAM_BREAD));
+        JELLYFISH_DINNER_ROLL = register("jellyfish_dinner_roll", new Item.Properties().food(CBFoodProperties.JELLYFISH_DINNER_ROLL));
+        NETHER_WART_BREAD = register("nether_wart_bread", new Item.Properties().food(CBFoodProperties.NETHER_WART_BREAD));
+        SLIME_BREAD = register("slime_bread", new Item.Properties().food(CBFoodProperties.SLIME_BREAD));
+        TIGER_BLOOMER = register("tiger_bloomer", new Item.Properties().food(CBFoodProperties.TIGER_BLOOMER));
+        TOAST = register("toast", new Item.Properties().food(CBFoodProperties.TOAST));
+
+        CREBLANK_FLUID_BUCKET = register("creblank_fluid_bucket", new BucketItem(CBFluids.CREBLANK_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+    }
+
+    public static RegistryObject<Item> register(String id, Item.Properties properties) {
+        return ITEMS.register(id, () -> new Item(properties));
+    }
+
+    public static RegistryObject<Item> register(String id, Item item) {
+        return ITEMS.register(id, () -> item);
     }
 }
