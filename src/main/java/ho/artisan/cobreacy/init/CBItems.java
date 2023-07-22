@@ -2,7 +2,6 @@ package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -49,7 +48,17 @@ public class CBItems {
         TIGER_BLOOMER = register("tiger_bloomer", new Item.Properties().food(CBFoodProperties.TIGER_BLOOMER));
         TOAST = register("toast", new Item.Properties().food(CBFoodProperties.TOAST));
 
+        BLAZE_POWDER_BLANK = register("blaze_powder_blank", new Item.Properties());
+        FLOUR = register("flour", new Item.Properties());
+        FLOUR_BREAD_BLANK = register("flour_bread_blank", new Item.Properties());
+        NETHER_WART_BLANK = register("nether_wart_blank", new Item.Properties());
+        SLIME_BLANK = register("slime_blank", new Item.Properties());
+        BLAZE_POWDER_SACK = register("blaze_powder_sack", new Item.Properties());
+        NETHER_WART_POWDER_SACK = register("nether_wart_powdwe_sack", new Item.Properties());
+        SLIME_SACK = register("slime_sack", new Item.Properties());
+
         CREBLANK_FLUID_BUCKET = register("creblank_fluid_bucket", new BucketItem(CBFluids.CREBLANK_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+        EMPTY_SACK = register("empty_sack", new Item.Properties());
     }
 
     public static RegistryObject<Item> register(String id, Item.Properties properties) {
