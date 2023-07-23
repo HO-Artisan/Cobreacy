@@ -1,6 +1,7 @@
 package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
+import ho.artisan.cobreacy.api.block.CreblankFluidBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -20,6 +21,6 @@ public class CBBlocks {
     public static final RegistryObject<LiquidBlock> CREBLANK_FLUID_BLOCK;
 
     static {
-        CREBLANK_FLUID_BLOCK = BLOCKS.register("creblank_fluid_block", () -> new LiquidBlock(CBFluids.CREBLANK_FLUID, BlockBehaviour.Properties.of().mapColor(MapColor.WATER).replaceable().noCollission().strength(100.0F).pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
+        CREBLANK_FLUID_BLOCK = BLOCKS.register("creblank_fluid_block", CreblankFluidBlock::new);
     }
 }

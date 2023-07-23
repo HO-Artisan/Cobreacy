@@ -2,11 +2,15 @@ package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CBItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, Cobreacy.MODID);
@@ -62,10 +66,12 @@ public class CBItems {
     }
 
     public static RegistryObject<Item> register(String id, Item.Properties properties) {
-        return ITEMS.register(id, () -> new Item(properties));
+        var a = ITEMS.register(id, () -> new Item(properties));
+        return a;
     }
 
     public static RegistryObject<Item> register(String id, Item item) {
-        return ITEMS.register(id, () -> item);
+        var a = ITEMS.register(id, () -> item);
+        return a;
     }
 }
