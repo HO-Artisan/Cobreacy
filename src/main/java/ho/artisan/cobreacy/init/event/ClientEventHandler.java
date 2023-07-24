@@ -14,6 +14,6 @@ import net.minecraftforge.fml.common.Mod;
 public class ClientEventHandler {
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(CBBlockEntityTypes.MILLING_STONE.get(), MillingStoneBlockRenderer::new);
+        event.registerBlockEntityRenderer(CBBlockEntityTypes.MILLING_STONE.get(), context -> new MillingStoneBlockRenderer());
     }
 }

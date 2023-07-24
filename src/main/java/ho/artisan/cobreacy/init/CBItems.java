@@ -6,6 +6,8 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -44,37 +46,40 @@ public class CBItems {
     public static final RegistryObject<BlockItem> MILLING_STONE;
 
     static {
-        BAGEL = register("bagel", new Item.Properties().food(CBFoodProperties.BAGEL));
-        BLAZE_BREAD = register("blaze_bread", new Item.Properties().food(CBFoodProperties.BLAZE_BREAD));
-        BRIOCHE = register("brioche", new Item.Properties().food(CBFoodProperties.BRIOCHE));
-        CREAM_BREAD = register("cream_bread", new Item.Properties().food(CBFoodProperties.CREAM_BREAD));
-        JELLYFISH_DINNER_ROLL = register("jellyfish_dinner_roll", new Item.Properties().food(CBFoodProperties.JELLYFISH_DINNER_ROLL));
-        NETHER_WART_BREAD = register("nether_wart_bread", new Item.Properties().food(CBFoodProperties.NETHER_WART_BREAD));
-        SLIME_BREAD = register("slime_bread", new Item.Properties().food(CBFoodProperties.SLIME_BREAD));
-        TIGER_BLOOMER = register("tiger_bloomer", new Item.Properties().food(CBFoodProperties.TIGER_BLOOMER));
-        TOAST = register("toast", new Item.Properties().food(CBFoodProperties.TOAST));
+        BAGEL = registerItem("bagel", new Item.Properties().food(CBFoodProperties.BAGEL));
+        BLAZE_BREAD = registerItem("blaze_bread", new Item.Properties().food(CBFoodProperties.BLAZE_BREAD));
+        BRIOCHE = registerItem("brioche", new Item.Properties().food(CBFoodProperties.BRIOCHE));
+        CREAM_BREAD = registerItem("cream_bread", new Item.Properties().food(CBFoodProperties.CREAM_BREAD));
+        JELLYFISH_DINNER_ROLL = registerItem("jellyfish_dinner_roll", new Item.Properties().food(CBFoodProperties.JELLYFISH_DINNER_ROLL));
+        NETHER_WART_BREAD = registerItem("nether_wart_bread", new Item.Properties().food(CBFoodProperties.NETHER_WART_BREAD));
+        SLIME_BREAD = registerItem("slime_bread", new Item.Properties().food(CBFoodProperties.SLIME_BREAD));
+        TIGER_BLOOMER = registerItem("tiger_bloomer", new Item.Properties().food(CBFoodProperties.TIGER_BLOOMER));
+        TOAST = registerItem("toast", new Item.Properties().food(CBFoodProperties.TOAST));
 
-        BLAZE_POWDER_BLANK = register("blaze_powder_blank", new Item.Properties().stacksTo(32));
-        FLOUR = register("flour", new Item.Properties().stacksTo(1));
-        FLOUR_BREAD_BLANK = register("flour_bread_blank", new Item.Properties().stacksTo(32));
-        NETHER_WART_BLANK = register("nether_wart_blank", new Item.Properties().stacksTo(32));
-        SLIME_BLANK = register("slime_blank", new Item.Properties().stacksTo(32));
-        BLAZE_POWDER_SACK = register("blaze_powder_sack", new Item.Properties().stacksTo(1));
-        NETHER_WART_POWDER_SACK = register("nether_wart_powdwe_sack", new Item.Properties().stacksTo(1));
-        SLIME_SACK = register("slime_sack", new Item.Properties().stacksTo(1));
+        BLAZE_POWDER_BLANK = registerItem("blaze_powder_blank", new Item.Properties().stacksTo(32));
+        FLOUR = registerItem("flour", new Item.Properties().stacksTo(1));
+        FLOUR_BREAD_BLANK = registerItem("flour_bread_blank", new Item.Properties().stacksTo(32));
+        NETHER_WART_BLANK = registerItem("nether_wart_blank", new Item.Properties().stacksTo(32));
+        SLIME_BLANK = registerItem("slime_blank", new Item.Properties().stacksTo(32));
+        BLAZE_POWDER_SACK = registerItem("blaze_powder_sack", new Item.Properties().stacksTo(1));
+        NETHER_WART_POWDER_SACK = registerItem("nether_wart_powdwe_sack", new Item.Properties().stacksTo(1));
+        SLIME_SACK = registerItem("slime_sack", new Item.Properties().stacksTo(1));
 
-        CREBLANK_FLUID_BUCKET = register(() -> new BucketItem(CBFluids.CREBLANK_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
-        EMPTY_SACK = register("empty_sack", new Item.Properties().stacksTo(1));
+        CREBLANK_FLUID_BUCKET = registerBucketItem("creblank_fluid_bucket", CBFluids.CREBLANK_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
+        EMPTY_SACK = registerItem("empty_sack", new Item.Properties().stacksTo(1));
 
-        MILLING_STONE = ITEMS.register("milling_stone", () -> new BlockItem(CBBlocks.MILLING_STONE.get(), new Item.Properties()));
+        MILLING_STONE = registerBlockItem("milling_stone", CBBlocks.MILLING_STONE.get(), new Item.Properties());
     }
 
-    public static RegistryObject<Item> register(String id, Item.Properties properties) {
-        var a = ITEMS.register(id, () -> new Item(properties));
-        return a;
+    public static RegistryObject<Item> registerItem(String id, Item.Properties properties) {
+        return ITEMS.register(id, () -> new Item(properties));
     }
 
-    private static RegistryObject<Item> register(Supplier<Item> item) {
-        return ITEMS.register("creblank_fluid_bucket", item);
+    private static RegistryObject<Item> registerBucketItem(String id, Supplier<? extends Fluid> supplier, Item.Properties properties) {
+        return ITEMS.register(id, () -> new BucketItem(supplier, properties));
+    }
+
+    public static RegistryObject<BlockItem> registerBlockItem(String id, Block block, Item.Properties properties) {
+        return ITEMS.register(id, () -> new BlockItem(block, properties));
     }
 }

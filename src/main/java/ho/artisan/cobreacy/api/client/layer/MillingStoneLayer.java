@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.phys.Vec2;
 import net.minecraftforge.items.ItemStackHandler;
@@ -19,6 +20,7 @@ import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
  * @author Goulixiaoji
  */
 public class MillingStoneLayer extends GeoRenderLayer<MillingStoneBlockEntity> {
+    private static final ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
     public MillingStoneLayer(GeoRenderer<MillingStoneBlockEntity> entityRendererIn) {
         super(entityRendererIn);
     }
@@ -40,10 +42,10 @@ public class MillingStoneLayer extends GeoRenderLayer<MillingStoneBlockEntity> {
                 Vec2 pos = millingStoneBlockEntity.getItemPos(g);
                 poseStack.translate(pos.x, pos.y, 0.0D);
 
-                poseStack.scale(0.375F, 0.375F, 0.75F);
+                poseStack.scale(0.375F, 0.375F, 0.375F);
 
                 if (millingStoneBlockEntity.getLevel() != null) {
-                    Minecraft.getInstance().getItemRenderer().renderStatic(inventory.getStackInSlot(g), ItemDisplayContext.FIXED, LevelRenderer.getLightColor(millingStoneBlockEntity.getLevel(), millingStoneBlockEntity.getBlockPos().above()), packedOverlay, poseStack, bufferSource, millingStoneBlockEntity.getLevel(), (int) millingStoneBlockEntity.getBlockPos().asLong());
+                    itemRenderer.renderStatic(inventory.getStackInSlot(g), ItemDisplayContext.FIXED, LevelRenderer.getLightColor(millingStoneBlockEntity.getLevel(), millingStoneBlockEntity.getBlockPos().above()), packedOverlay, poseStack, bufferSource, millingStoneBlockEntity.getLevel(), (int) millingStoneBlockEntity.getBlockPos().asLong());
                 }
                 poseStack.popPose();
             }
