@@ -68,7 +68,7 @@ public class CBItems {
         CREBLANK_FLUID_BUCKET = registerBucketItem("creblank_fluid_bucket", CBFluids.CREBLANK_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
         EMPTY_SACK = registerItem("empty_sack", new Item.Properties().stacksTo(1));
 
-        MILLING_STONE = registerBlockItem("milling_stone", CBBlocks.MILLING_STONE.get(), new Item.Properties());
+        MILLING_STONE = registerBlockItem("milling_stone", CBBlocks.MILLING_STONE, new Item.Properties());
     }
 
     public static RegistryObject<Item> registerItem(String id, Item.Properties properties) {
@@ -79,7 +79,7 @@ public class CBItems {
         return ITEMS.register(id, () -> new BucketItem(supplier, properties));
     }
 
-    public static RegistryObject<BlockItem> registerBlockItem(String id, Block block, Item.Properties properties) {
-        return ITEMS.register(id, () -> new BlockItem(block, properties));
+    public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Item.Properties properties) {
+        return ITEMS.register(id, () -> new BlockItem(block.get(), properties));
     }
 }
