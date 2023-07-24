@@ -1,10 +1,7 @@
 package ho.artisan.cobreacy;
 
 import com.mojang.logging.LogUtils;
-import ho.artisan.cobreacy.init.CBBlocks;
-import ho.artisan.cobreacy.init.CBFluids;
-import ho.artisan.cobreacy.init.CBItems;
-import ho.artisan.cobreacy.init.CBTabs;
+import ho.artisan.cobreacy.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,6 +24,9 @@ public class Cobreacy {
         CBBlocks.BLOCKS.register(bus);
         CBTabs.TABS.register(bus);
         CBFluids.FLUIDS.register(bus);
+        CBBlockEntityTypes.BLOCK_ENTITY_TYPE.register(bus);
+        CBRecipeTypes.RECIPE_TYPES.register(bus);
+
         MinecraftForge.EVENT_BUS.register(this);
     }
 

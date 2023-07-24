@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 public class MillingStoneBlock extends BaseEntityBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
-    protected MillingStoneBlock(Properties arg) {
+    public MillingStoneBlock(Properties arg) {
         super(arg);
     }
 

@@ -2,6 +2,7 @@ package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -13,7 +14,7 @@ import java.util.function.Supplier;
 public class CBItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, Cobreacy.MODID);
 
-    //Bread
+    // Bread
     public static final RegistryObject<Item> BAGEL;
     public static final RegistryObject<Item> BLAZE_BREAD;
     public static final RegistryObject<Item> BRIOCHE;
@@ -24,7 +25,7 @@ public class CBItems {
     public static final RegistryObject<Item> TIGER_BLOOMER;
     public static final RegistryObject<Item> TOAST;
 
-    //Materials
+    // Materials
     public static final RegistryObject<Item> BLAZE_POWDER_BLANK;
     public static final RegistryObject<Item> FLOUR;
     public static final RegistryObject<Item> FLOUR_BREAD_BLANK;
@@ -35,9 +36,12 @@ public class CBItems {
     public static final RegistryObject<Item> NETHER_WART_POWDER_SACK;
     public static final RegistryObject<Item> SLIME_SACK;
 
-    //Misc
+    // Misc
     public static final RegistryObject<Item> CREBLANK_FLUID_BUCKET;
     public static final RegistryObject<Item> EMPTY_SACK;
+
+    // Block
+    public static final RegistryObject<BlockItem> MILLING_STONE;
 
     static {
         BAGEL = register("bagel", new Item.Properties().food(CBFoodProperties.BAGEL));
@@ -59,8 +63,10 @@ public class CBItems {
         NETHER_WART_POWDER_SACK = register("nether_wart_powdwe_sack", new Item.Properties().stacksTo(1));
         SLIME_SACK = register("slime_sack", new Item.Properties().stacksTo(1));
 
-        CREBLANK_FLUID_BUCKET = register(()-> new BucketItem(CBFluids.CREBLANK_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+        CREBLANK_FLUID_BUCKET = register(() -> new BucketItem(CBFluids.CREBLANK_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
         EMPTY_SACK = register("empty_sack", new Item.Properties().stacksTo(1));
+
+        MILLING_STONE = ITEMS.register("milling_stone", () -> new BlockItem(CBBlocks.MILLING_STONE.get(), new Item.Properties()));
     }
 
     public static RegistryObject<Item> register(String id, Item.Properties properties) {

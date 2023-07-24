@@ -33,6 +33,6 @@ public class CBBlocks {
         FIRE_BRICKS = BLOCKS.register("fire_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.BRICKS)));
         FUEL_HATCH = BLOCKS.register("fuel_hatch", FuelHatchBlock::new);
         BRICK_OVENS = BLOCKS.register("brick_ovens", BrickOvensBlock::new);
-        MILLING_STONE = BLOCKS.register("milling_stone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+        MILLING_STONE = BLOCKS.register("milling_stone", () -> new MillingStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
     }
 }
