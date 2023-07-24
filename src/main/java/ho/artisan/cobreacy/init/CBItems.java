@@ -2,15 +2,13 @@ package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.function.Supplier;
 
 public class CBItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, Cobreacy.MODID);
@@ -61,7 +59,7 @@ public class CBItems {
         NETHER_WART_POWDER_SACK = register("nether_wart_powdwe_sack", new Item.Properties().stacksTo(1));
         SLIME_SACK = register("slime_sack", new Item.Properties().stacksTo(1));
 
-        CREBLANK_FLUID_BUCKET = register("creblank_fluid_bucket", new BucketItem(CBFluids.CREBLANK_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+        CREBLANK_FLUID_BUCKET = register(()-> new BucketItem(CBFluids.CREBLANK_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
         EMPTY_SACK = register("empty_sack", new Item.Properties().stacksTo(1));
     }
 
@@ -70,8 +68,7 @@ public class CBItems {
         return a;
     }
 
-    public static RegistryObject<Item> register(String id, Item item) {
-        var a = ITEMS.register(id, () -> item);
-        return a;
+    private static RegistryObject<Item> register(Supplier<Item> item) {
+        return ITEMS.register("creblank_fluid_bucket", item);
     }
 }
