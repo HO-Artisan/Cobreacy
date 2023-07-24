@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec2;
 import net.minecraftforge.items.ItemStackHandler;
 
 /**
@@ -79,6 +80,15 @@ public class MillingStoneBlockEntity extends SyncedBlockEntity {
             public int getSlotLimit(int slot) {
                 return 1;
             }
+        };
+    }
+
+    public Vec2 getItemPos(int slot) {
+        return switch (slot) {
+            case 0 -> new Vec2(0.0F, 0.3F);
+            case 1 -> new Vec2(0.28F, -0.3F);
+            case 2 -> new Vec2(-0.28F, -0.3F);
+            default -> new Vec2(0.0F, 0.0F);
         };
     }
 }
