@@ -8,13 +8,20 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
 import net.minecraftforge.items.ItemStackHandler;
+import software.bernie.geckolib.animatable.GeoBlockEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
  * @author Goulixiaoji
  */
-public class MillingStoneBlockEntity extends SyncedBlockEntity {
+public class MillingStoneBlockEntity extends SyncedBlockEntity implements GeoBlockEntity {
 
     public static final int INVENTORY_HANDLER_COUNT = 3;
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+
     private final ItemStackHandler inventory;
     public MillingStoneBlockEntity(BlockPos pos, BlockState state) {
         super(CBBlockEntityTypes.MILLING_STONE.get(), pos, state);
@@ -90,5 +97,15 @@ public class MillingStoneBlockEntity extends SyncedBlockEntity {
             case 2 -> new Vec2(-0.28F, -0.3F);
             default -> new Vec2(0.0F, 0.0F);
         };
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controller) {
+
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 }
