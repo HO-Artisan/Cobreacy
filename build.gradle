@@ -42,6 +42,11 @@ repositories {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
     }
+
+    maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+    }
 }
 
 dependencies {
@@ -52,6 +57,8 @@ dependencies {
         parchment("org.parchmentmc.data:parchment-${project.minecraft_version}:2023.07.16@zip")
     }
     forge "net.minecraftforge:forge:${project.forge_version}"
+
+    modImplementation "software.bernie.geckolib:geckolib-forge-1.20:4.2"
 }
 
 processResources {
