@@ -1,6 +1,7 @@
 package ho.artisan.cobreacy.api.block;
 
 import ho.artisan.cobreacy.api.block.entity.MillingStoneBlockEntity;
+import ho.artisan.cobreacy.utility.ItemUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -43,6 +44,18 @@ public class MillingStoneBlock extends BaseEntityBlock {
             return InteractionResult.CONSUME;
         }
         return InteractionResult.PASS;
+    }
+
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (state.getBlock() != newState.getBlock()) {
+            BlockEntity tileEntity = level.getBlockEntity(pos);
+            if (tileEntity instanceof MillingStoneBlockEntity) {
+                ItemUtils.dropItems(level, pos, ((MillingStoneBlockEntity) tileEntity).getInventory());
+            }
+
+            super.onRemove(state, level, pos, newState, movedByPiston);
+        }
     }
 
     @Nullable
