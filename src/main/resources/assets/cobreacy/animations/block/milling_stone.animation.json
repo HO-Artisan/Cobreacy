@@ -2,8 +2,9 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"milling_stone.running": {
-			"loop": "hold_on_last_frame",
+			"loop": true,
 			"animation_length": 4.04167,
+			"override_previous_animation": true,
 			"bones": {
 				"top": {
 					"rotation": {

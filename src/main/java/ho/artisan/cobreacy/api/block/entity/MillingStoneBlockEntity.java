@@ -114,22 +114,16 @@ public class MillingStoneBlockEntity extends SyncedBlockEntity implements GeoBlo
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controller) {
-            controller.add(new AnimationController<>(this, (state) -> {
-                if (this.onUse) {
-                    LOGGER.info("running!");
-                    state.setAnimation(CBAnimations.MILLING_STONE_RUNNING);
-                }
-
-                if (!state.isMoving()) {
-                    onUse = false;
-                    state.resetCurrentAnimation();
-                }
-                else {
-                    return PlayState.CONTINUE;
-                }
-
-                return PlayState.STOP;
-            }));
+        controller.add(new AnimationController<>(this, (state) -> {
+            if (onUse) {
+                state.setAnimation(CBAnimations.MILLING_STONE_RUNNING);
+//                if (it's still a dream) {
+//                    Fate
+//                }
+                return PlayState.CONTINUE;
+            }
+            return PlayState.STOP;
+        }));
     }
 
     @Override
