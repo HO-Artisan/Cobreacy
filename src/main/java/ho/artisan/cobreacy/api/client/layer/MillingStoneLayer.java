@@ -3,12 +3,14 @@ package ho.artisan.cobreacy.api.client.layer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import ho.artisan.cobreacy.api.block.MillingStoneBlock;
 import ho.artisan.cobreacy.api.block.entity.MillingStoneBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.phys.Vec2;
 import net.minecraftforge.items.ItemStackHandler;
@@ -28,13 +30,14 @@ public class MillingStoneLayer extends GeoRenderLayer<MillingStoneBlockEntity> {
     @Override
     public void render(PoseStack poseStack, MillingStoneBlockEntity millingStoneBlockEntity, BakedGeoModel bakedModel, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
         ItemStackHandler inventory = millingStoneBlockEntity.getInventory();
+        Direction direction = millingStoneBlockEntity.getBlockState().getValue(MillingStoneBlock.FACING).getOpposite();
         for (int g=0; g<inventory.getSlots(); g++) {
             if (!inventory.getStackInSlot(g).isEmpty()) {
                 poseStack.pushPose();
 
                 poseStack.translate(0.5D, 0.29D, 0.5D);
 
-                float f = -0;
+                float f = -direction.toYRot();
                 poseStack.mulPose(Axis.YP.rotationDegrees(f));
 
                 poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));

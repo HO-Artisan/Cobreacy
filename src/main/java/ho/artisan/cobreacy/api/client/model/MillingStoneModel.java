@@ -10,9 +10,6 @@ import software.bernie.geckolib.model.DefaultedBlockGeoModel;
  * @author Goulixiaoji
  */
 public class MillingStoneModel extends DefaultedBlockGeoModel<MillingStoneBlockEntity> {
-    private final ResourceLocation model = new ResourceLocation(Cobreacy.MODID, "geo/block/milling_stone.geo.json");
-    private final ResourceLocation texture = new ResourceLocation(Cobreacy.MODID, "textures/block/milling_stone.png");
-    private final ResourceLocation animation = new ResourceLocation(Cobreacy.MODID, "animations/milling_stone.animation.json");
 
     public MillingStoneModel() {
         super(new ResourceLocation(Cobreacy.MODID, "milling_stone"));

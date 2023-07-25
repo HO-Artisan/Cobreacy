@@ -1,17 +1,20 @@
 package ho.artisan.cobreacy.api.block.entity;
 
+import ho.artisan.cobreacy.init.CBAnimations;
 import ho.artisan.cobreacy.init.CBBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
 import net.minecraftforge.items.ItemStackHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import software.bernie.geckolib.animatable.GeoBlockEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
@@ -21,6 +24,8 @@ public class MillingStoneBlockEntity extends SyncedBlockEntity implements GeoBlo
 
     public static final int INVENTORY_HANDLER_COUNT = 3;
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+    private boolean onUse = false;
+    private static final Logger LOGGER = LoggerFactory.getLogger(MillingStoneBlockEntity.class);
 
     private final ItemStackHandler inventory;
     public MillingStoneBlockEntity(BlockPos pos, BlockState state) {
@@ -99,9 +104,32 @@ public class MillingStoneBlockEntity extends SyncedBlockEntity implements GeoBlo
         };
     }
 
+    public void setOnUse() {
+        this.onUse = true;
+    }
+
+    public boolean isOnUse() {
+        return this.onUse;
+    }
+
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controller) {
+            controller.add(new AnimationController<>(this, (state) -> {
+                if (this.onUse) {
+                    LOGGER.info("running!");
+                    state.setAnimation(CBAnimations.MILLING_STONE_RUNNING);
+                }
 
+                if (!state.isMoving()) {
+                    onUse = false;
+                    state.resetCurrentAnimation();
+                }
+                else {
+                    return PlayState.CONTINUE;
+                }
+
+                return PlayState.STOP;
+            }));
     }
 
     @Override
