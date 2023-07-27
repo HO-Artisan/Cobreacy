@@ -4,6 +4,7 @@
 		"milling_stone.running": {
 			"loop": true,
 			"animation_length": 4.04167,
+			"override_previous_animation": true,
 			"bones": {
 				"top": {
 					"rotation": {

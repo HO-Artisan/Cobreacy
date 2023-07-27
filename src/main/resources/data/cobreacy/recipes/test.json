@@ -1,0 +1,14 @@
+{
+  "type": "cobreacy:milling",
+  "input": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": [
+    {
+      "count": 2,
+      "item": "minecraft:iron_ingot"
+    }
+  ]
+}
