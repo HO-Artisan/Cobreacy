@@ -23,10 +23,10 @@ public class CBBlocks {
     public static final RegistryObject<Block> MILLING_STONE;
 
     static {
-        CREBLANK_FLUID_BLOCK = BLOCKS.register("creblank_fluid_block", CreblankFluidBlock::new);
+        CREBLANK_FLUID_BLOCK = BLOCKS.register("creblank_fluid_block", () -> new LiquidBlock(CBFluids.CREBLANK_FLUID, BlockBehaviour.Properties.of().noLootTable().liquid().replaceable()));
         FIRE_BRICKS = BLOCKS.register("fire_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.BRICKS)));
         FUEL_HATCH = BLOCKS.register("fuel_hatch", FuelHatchBlock::new);
         BRICK_OVENS = BLOCKS.register("brick_ovens", BrickOvensBlock::new);
-        MILLING_STONE = BLOCKS.register("milling_stone", () -> new MillingStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
+        MILLING_STONE = BLOCKS.register("milling_stone", () -> new MillingStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
     }
 }

@@ -24,6 +24,7 @@ public class Cobreacy {
         CBBlocks.BLOCKS.register(bus);
         CBTabs.TABS.register(bus);
         CBFluids.FLUIDS.register(bus);
+        CBFluids.FLUID_TYPES.register(bus);
         CBBlockEntityTypes.BLOCK_ENTITY_TYPE.register(bus);
         CBRecipeTypes.RECIPE_TYPES.register(bus);
 
