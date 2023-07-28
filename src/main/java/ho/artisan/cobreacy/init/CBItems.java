@@ -19,7 +19,6 @@ public class CBItems {
     // Bread
     public static final RegistryObject<Item> BAGEL;
     public static final RegistryObject<Item> BLAZE_BREAD;
-    public static final RegistryObject<Item> BRIOCHE;
     public static final RegistryObject<Item> CREAM_BREAD;
     public static final RegistryObject<Item> JELLYFISH_DINNER_ROLL;
     public static final RegistryObject<Item> NETHER_WART_BREAD;
@@ -48,7 +47,6 @@ public class CBItems {
     static {
         BAGEL = registerItem("bagel", new Item.Properties().food(CBFoodProperties.BAGEL));
         BLAZE_BREAD = registerItem("blaze_bread", new Item.Properties().food(CBFoodProperties.BLAZE_BREAD));
-        BRIOCHE = registerItem("brioche", new Item.Properties().food(CBFoodProperties.BRIOCHE));
         CREAM_BREAD = registerItem("cream_bread", new Item.Properties().food(CBFoodProperties.CREAM_BREAD));
         JELLYFISH_DINNER_ROLL = registerItem("jellyfish_dinner_roll", new Item.Properties().food(CBFoodProperties.JELLYFISH_DINNER_ROLL));
         NETHER_WART_BREAD = registerItem("nether_wart_bread", new Item.Properties().food(CBFoodProperties.NETHER_WART_BREAD));
