@@ -62,7 +62,7 @@ public class CBItems {
         NETHER_WART_BLANK = registerItem("nether_wart_blank", new Item.Properties().stacksTo(32));
         SLIME_BLANK = registerItem("slime_blank", new Item.Properties().stacksTo(32));
         BLAZE_POWDER_SACK = registerItem("blaze_powder_sack", new Item.Properties().stacksTo(1));
-        NETHER_WART_POWDER_SACK = registerItem("nether_wart_powdwe_sack", new Item.Properties().stacksTo(1));
+        NETHER_WART_POWDER_SACK = registerItem("nether_wart_powder_sack", new Item.Properties().stacksTo(1));
         SLIME_SACK = registerItem("slime_sack", new Item.Properties().stacksTo(1));
 
         CREBLANK_FLUID_BUCKET = registerBucketItem("creblank_fluid_bucket", CBFluids.CREBLANK_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1));
