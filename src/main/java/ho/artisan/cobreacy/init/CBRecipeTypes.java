@@ -1,7 +1,7 @@
 package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
-import ho.artisan.cobreacy.api.recipe.MillingStoneRecipe;
+import ho.artisan.cobreacy.impl.recipe.MillingStoneRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,14 +13,11 @@ public class CBRecipeTypes {
     public static final RegistryObject<RecipeType<MillingStoneRecipe>> MILLING_STONE;
 
     static {
-        MILLING_STONE = RECIPE_TYPES.register("milling_stone", () -> {
-                return new RecipeType<MillingStoneRecipe>() {
-                    @Override
-                    public String toString() {
-                        return Cobreacy.MODID + ":" + "milling_stone";
-                    }
-                };
+        MILLING_STONE = RECIPE_TYPES.register("milling_stone", () -> new RecipeType<>() {
+            @Override
+            public String toString() {
+                return Cobreacy.MODID + ":" + "milling_stone";
             }
-        );
+        });
     }
 }

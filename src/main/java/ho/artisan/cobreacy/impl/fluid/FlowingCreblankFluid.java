@@ -1,4 +1,4 @@
-package ho.artisan.cobreacy.api.fluid;
+package ho.artisan.cobreacy.impl.fluid;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;

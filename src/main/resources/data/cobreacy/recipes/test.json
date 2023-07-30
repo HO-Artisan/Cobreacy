@@ -1,14 +1,12 @@
 {
   "type": "cobreacy:milling",
-  "input": [
+  "ingredients": [
     {
       "item": "minecraft:iron_ingot"
     }
   ],
-  "output": [
-    {
-      "count": 2,
-      "item": "minecraft:iron_ingot"
-    }
-  ]
+  "result": {
+    "count": 2,
+    "item": "minecraft:iron_ingot"
+  }
 }

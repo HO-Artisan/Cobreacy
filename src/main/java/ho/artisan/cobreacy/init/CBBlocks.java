@@ -1,8 +1,8 @@
 package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
-import ho.artisan.cobreacy.api.block.MillingStoneBlock;
-import ho.artisan.cobreacy.api.fluid.FlowingCreblankFluid;
+import ho.artisan.cobreacy.impl.block.MillingStoneBlock;
+import ho.artisan.cobreacy.impl.fluid.FlowingCreblankFluid;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;

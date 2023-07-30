@@ -2,13 +2,15 @@ package ho.artisan.cobreacy.utility;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Containers;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.items.IItemHandler;
+
+import java.util.List;
 
 public class ItemUtils {
-    public static void dropItems(Level level, BlockPos pos, IItemHandler inventory) {
-        for (int slot = 0; slot < inventory.getSlots(); slot++) {
-            Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), inventory.getStackInSlot(slot));
+    public static void dropItems(Level level, BlockPos pos, List<ItemStack> list) {
+        for (ItemStack stack : list) {
+            Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), stack);
         }
     }
 }

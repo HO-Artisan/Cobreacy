@@ -22,13 +22,17 @@ public class Cobreacy {
 
         CBItems.ITEMS.register(bus);
         CBBlocks.BLOCKS.register(bus);
-        CBTabs.TABS.register(bus);
+
         CBFluids.FLUIDS.register(bus);
         CBFluids.FLUID_TYPES.register(bus);
         CBBlockEntityTypes.BLOCK_ENTITY_TYPE.register(bus);
         CBRecipeTypes.RECIPE_TYPES.register(bus);
+        CBRecipeSerializers.RECIPE_SERIALIZERS.register(bus);
+        CBTabs.TABS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        LOGGER.info("Cobreacy is loaded!");
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

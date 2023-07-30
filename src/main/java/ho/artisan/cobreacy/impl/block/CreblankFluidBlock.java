@@ -1,4 +1,4 @@
-package ho.artisan.cobreacy.api.block;
+package ho.artisan.cobreacy.impl.block;
 
 import ho.artisan.cobreacy.init.CBFluids;
 import net.minecraft.world.level.block.LiquidBlock;

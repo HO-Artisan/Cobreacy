@@ -1,4 +1,4 @@
-package ho.artisan.cobreacy.api.fluid;
+package ho.artisan.cobreacy.impl.fluid;
 
 import ho.artisan.cobreacy.Cobreacy;
 import ho.artisan.cobreacy.init.CBBlocks;

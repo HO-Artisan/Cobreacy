@@ -20,12 +20,6 @@ sourceSets {
 loom {
     silentMojangMappingsLicense()
 
-    forge {
-        mixinConfigs = [
-                "cobreacy.mixins.json"
-        ]
-    }
-
     //https://docs.architectury.dev/loom/datagen
     runs {
         data {

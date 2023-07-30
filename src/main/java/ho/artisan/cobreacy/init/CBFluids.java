@@ -1,7 +1,7 @@
 package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
-import ho.artisan.cobreacy.api.fluid.CreblankFluid;
+import ho.artisan.cobreacy.impl.fluid.CreblankFluid;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
