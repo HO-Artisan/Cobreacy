@@ -74,7 +74,8 @@ public class CBItems {
     }
 
     private static RegistryObject<Item> registerBucketItem(String id, Supplier<? extends Fluid> supplier, Item.Properties properties) {
-        return ITEMS.register(id, () -> new BucketItem(supplier, properties));
+        return ITEMS.register(id, () -> new Item(properties));
+        //TODO, NO TIME :sad:
     }
 
     public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Item.Properties properties) {
