@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "minecraft:smooth_stone_slab"
+    },
+    "A": {
+      "item": "minecraft:stone"
+    },
+    "K": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "III",
+    " AK",
+    "III"
+  ],
+  "result": {
+    "item": "cobreacy:milling_stone"
+  }
+}
