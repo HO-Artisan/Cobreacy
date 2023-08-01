@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "cobreacy:tiger_bloomer_blank"
+  },
+  "result": "cobreacy:tiger_bloomer"
+}

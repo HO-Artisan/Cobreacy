@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "cobreacy:bagel_blank"
+  },
+  "result": "cobreacy:bagel"
+}

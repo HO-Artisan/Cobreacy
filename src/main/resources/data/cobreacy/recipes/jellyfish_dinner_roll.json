@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "cobreacy:jellyfish_dinner_roll_blank"
+  },
+  "result": "cobreacy:jellyfish_dinner_roll"
+}

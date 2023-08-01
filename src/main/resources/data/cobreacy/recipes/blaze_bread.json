@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smoking",
   "ingredient": {
-    "item": "cobreacy:blaze_blank"
+    "item": "cobreacy:blaze_powder_blank"
   },
   "result": "cobreacy:blaze_bread"
 }
