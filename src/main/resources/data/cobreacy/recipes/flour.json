@@ -3,10 +3,16 @@
   "ingredients": [
     {
       "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
     }
   ],
   "result": {
-    "count": 2,
+    "count": 1,
     "item": "cobreacy:flour"
   }
 }
