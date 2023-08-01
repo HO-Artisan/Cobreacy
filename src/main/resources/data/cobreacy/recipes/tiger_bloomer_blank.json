@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cobreacy:flour"
+    },
+    {
+      "item": "cobreacy:flour_bread_blank"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    }
+  ],
+  "result": {
+    "item": "cobreacy:tiger_bloomer_blank"
+  }
+}

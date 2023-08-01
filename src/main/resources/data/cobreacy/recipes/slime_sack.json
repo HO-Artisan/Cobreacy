@@ -1,0 +1,12 @@
+{
+  "type": "cobreacy:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:slime_ball"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "cobreacy:slime_sack"
+  }
+}

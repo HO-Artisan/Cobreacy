@@ -1,0 +1,12 @@
+{
+  "type": "cobreacy:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "cobreacy:flour"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "cobreacy:nether_wart_blank"
+  },
+  "result": "cobreacy:nether_wart_bread"
+}

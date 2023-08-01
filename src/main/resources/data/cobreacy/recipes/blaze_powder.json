@@ -1,0 +1,12 @@
+{
+  "type": "cobreacy:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:blaze_rod"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "cobreacy:blaze_powder_sack"
+  }
+}

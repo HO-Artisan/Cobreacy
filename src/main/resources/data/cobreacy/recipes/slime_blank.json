@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cobreacy:creblank_fluid_bucket"
+    },
+    {
+      "item": "cobreacy:slime_sack"
+    }
+  ],
+  "result": {
+    "item": "cobreacy:slime_blank"
+  }
+}

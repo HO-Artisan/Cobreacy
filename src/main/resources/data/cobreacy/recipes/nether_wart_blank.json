@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cobreacy:creblank_fluid_bucket"
+    },
+    {
+      "item": "cobreacy:nether_wart_powder_sack"
+    }
+  ],
+  "result": {
+    "item": "cobreacy:nether_wart_blank"
+  }
+}
