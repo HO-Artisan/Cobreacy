@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "cobreacy:flour_bread_blank"
+  },
+  "result": "cobreacy:toast"
+}

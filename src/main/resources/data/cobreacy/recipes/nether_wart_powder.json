@@ -1,0 +1,12 @@
+{
+  "type": "cobreacy:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:nether_wart"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "cobreacy:nether_wart_sack"
+  }
+}

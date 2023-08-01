@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "item": "minecraft:string"
+    },
+    "A": {
+      "tag": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "I I",
+    "I I",
+    "IAI"
+  ],
+  "result": {
+    "item": "cobreacy:empty_sack"
+  }
+}

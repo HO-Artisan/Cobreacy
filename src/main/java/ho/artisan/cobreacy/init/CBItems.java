@@ -32,6 +32,10 @@ public class CBItems {
     public static final RegistryObject<Item> FLOUR_BREAD_BLANK;
     public static final RegistryObject<Item> NETHER_WART_BLANK;
     public static final RegistryObject<Item> SLIME_BLANK;
+    public static final RegistryObject<Item> TIGER_BLOOMER_BLANK;
+    public static final RegistryObject<Item> JELLYFISH_DINNER_ROLL_BLANK;
+    public static final RegistryObject<Item> BAGEL_BLANK;
+    public static final RegistryObject<Item> CREAM_BREAD_BLANK;
 
     public static final RegistryObject<Item> BLAZE_POWDER_SACK;
     public static final RegistryObject<Item> NETHER_WART_POWDER_SACK;
@@ -59,6 +63,11 @@ public class CBItems {
         FLOUR_BREAD_BLANK = registerItem("flour_bread_blank", new Item.Properties().stacksTo(32));
         NETHER_WART_BLANK = registerItem("nether_wart_blank", new Item.Properties().stacksTo(32));
         SLIME_BLANK = registerItem("slime_blank", new Item.Properties().stacksTo(32));
+        TIGER_BLOOMER_BLANK = registerItem("tiger_bloomer_blank", new Item.Properties().stacksTo(32));
+        JELLYFISH_DINNER_ROLL_BLANK = registerItem("jellyfish_dinner_roll_blank", new Item.Properties().stacksTo(32));
+        BAGEL_BLANK = registerItem("bagel_blank", new Item.Properties().stacksTo(32));
+        CREAM_BREAD_BLANK = registerItem("cream_bread_blank", new Item.Properties().stacksTo(32));
+
         BLAZE_POWDER_SACK = registerItem("blaze_powder_sack", new Item.Properties().stacksTo(1));
         NETHER_WART_POWDER_SACK = registerItem("nether_wart_powder_sack", new Item.Properties().stacksTo(1));
         SLIME_SACK = registerItem("slime_sack", new Item.Properties().stacksTo(1));
@@ -74,7 +83,8 @@ public class CBItems {
     }
 
     private static RegistryObject<Item> registerBucketItem(String id, Supplier<? extends Fluid> supplier, Item.Properties properties) {
-        return ITEMS.register(id, () -> new BucketItem(supplier, properties));
+        return ITEMS.register(id, () -> new Item(properties));
+        //TODO, NO TIME :sad:
     }
 
     public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Item.Properties properties) {
