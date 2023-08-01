@@ -1,15 +1,18 @@
 {
   "block.cobreacy.milling_stone": "Milling Stone",
   "item.cobreacy.bagel": "Bagel",
+  "item.cobreacy.bagel_blank": "Bagel Blank",
   "item.cobreacy.blaze_bread": "Blaze Bread",
   "item.cobreacy.blaze_powder_blank": "Blaze Powder Blank",
   "item.cobreacy.blaze_powder_sack": "Blaze Powder Sack",
   "item.cobreacy.cream_bread": "Cream Bread",
+  "item.cobreacy.cream_bread_blank": "Cream Bread Blank",
   "item.cobreacy.creblank_fluid_bucket": "Creblank Fluid Bucket",
   "item.cobreacy.empty_sack": "Empty Sack",
   "item.cobreacy.flour": "Flour",
   "item.cobreacy.flour_bread_blank": "Flour Bread Blank",
   "item.cobreacy.jellyfish_dinner_roll": "Jellyfish Dinner Roll",
+  "item.cobreacy.jellyfish_dinner_roll_blank": "Jellyfish Dinner Roll Blank",
   "item.cobreacy.nether_wart_blank": "Nether Wart Blank",
   "item.cobreacy.nether_wart_bread": "Nether Wart Bread",
   "item.cobreacy.nether_wart_powder_sack": "Nether Wart Powder Sack",
@@ -17,6 +20,7 @@
   "item.cobreacy.slime_bread": "Slime Bread",
   "item.cobreacy.slime_sack": "Slime Sack",
   "item.cobreacy.tiger_bloomer": "Tiger Bloomer",
+  "item.cobreacy.tiger_bloomer_blank": "Tiger Bloomer Blank",
   "item.cobreacy.toast": "Toast",
   "itemGroup.cobreacy.main": "Cobreacy"
 }

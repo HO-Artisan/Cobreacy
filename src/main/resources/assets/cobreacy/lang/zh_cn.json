@@ -1,15 +1,18 @@
 {
   "block.cobreacy.milling_stone": "石磨",
   "item.cobreacy.bagel": "贝果",
+  "item.cobreacy.bagel_blank": "Bagel Blank",
   "item.cobreacy.blaze_bread": "烈焰面包",
   "item.cobreacy.blaze_powder_blank": "烈焰面包坯",
   "item.cobreacy.blaze_powder_sack": "烈焰面粉袋",
   "item.cobreacy.cream_bread": "奶油面包",
+  "item.cobreacy.cream_bread_blank": "Cream Bread Blank",
   "item.cobreacy.creblank_fluid_bucket": "制坯液桶",
   "item.cobreacy.empty_sack": "空袋子",
   "item.cobreacy.flour": "面粉",
   "item.cobreacy.flour_bread_blank": "面包坯",
   "item.cobreacy.jellyfish_dinner_roll": "Jellyfish Dinner Roll",
+  "item.cobreacy.jellyfish_dinner_roll_blank": "Jellyfish Dinner Roll Blank",
   "item.cobreacy.nether_wart_blank": "Nether Wart Blank",
   "item.cobreacy.nether_wart_bread": "Nether Wart Bread",
   "item.cobreacy.nether_wart_powder_sack": "Nether Wart Powder Sack",
@@ -17,6 +20,7 @@
   "item.cobreacy.slime_bread": "Slime Bread",
   "item.cobreacy.slime_sack": "Slime Sack",
   "item.cobreacy.tiger_bloomer": "Tiger Bloomer",
+  "item.cobreacy.tiger_bloomer_blank": "Tiger Bloomer Blank",
   "item.cobreacy.toast": "Toast",
   "itemGroup.cobreacy.main": "焙烤幻想"
 }
