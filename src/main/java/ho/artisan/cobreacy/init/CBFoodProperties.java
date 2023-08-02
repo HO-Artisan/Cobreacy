@@ -7,7 +7,6 @@ import net.minecraft.world.food.FoodProperties;
 public class CBFoodProperties {
     public static final FoodProperties BAGEL = new FoodProperties.Builder().nutrition(2).saturationMod(2).build();
     public static final FoodProperties BLAZE_BREAD = new FoodProperties.Builder().nutrition(5).saturationMod(4).effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1200, 1), 1.0F).build();
-    public static final FoodProperties BRIOCHE = new FoodProperties.Builder().nutrition(7).saturationMod(6).build();
     public static final FoodProperties CREAM_BREAD = new FoodProperties.Builder().nutrition(6).saturationMod(8).build();
     public static final FoodProperties JELLYFISH_DINNER_ROLL = new FoodProperties.Builder().nutrition(6).saturationMod(6).build();
     public static final FoodProperties NETHER_WART_BREAD = new FoodProperties.Builder().nutrition(10).saturationMod(1).build();

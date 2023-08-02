@@ -1,7 +1,6 @@
 package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;

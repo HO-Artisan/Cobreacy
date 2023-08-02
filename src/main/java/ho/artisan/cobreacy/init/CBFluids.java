@@ -2,7 +2,6 @@ package ho.artisan.cobreacy.init;
 
 import ho.artisan.cobreacy.Cobreacy;
 import ho.artisan.cobreacy.impl.fluid.CreblankFluid;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidType;
@@ -13,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class CBFluids {
 
-    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID, Cobreacy.MODID);
+    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, Cobreacy.MODID);
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, Cobreacy.MODID);
 
     public static final RegistryObject<FlowingFluid> CREBLANK_FLUID;
