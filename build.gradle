@@ -1,105 +1,146 @@
 plugins {
-    id "dev.architectury.loom" version "1.2-SNAPSHOT"
-    id "maven-publish"
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
 
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
-
-archivesBaseName = project.archives_base_name
 version = project.mod_version
-group = project.maven_group
+group = project.mod_group_id
 
-def generatedResources = file("src/generated")
-
-sourceSets {
-    main {
-        resources.srcDir generatedResources
-    }
+base {
+    archivesName = project.mod_id
 }
 
-loom {
-    silentMojangMappingsLicense()
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-    //https://docs.architectury.dev/loom/datagen
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+minecraft {
+    mappings channel: mapping_channel, version: mapping_version
+
+    copyIdeResources = true
     runs {
+        client {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', project.mod_id
+
+            mods {
+                "${project.mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', project.mod_id
+
+            mods {
+                "${project.mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        gameTestServer {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', project.mod_id
+
+            mods {
+                "${project.mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
         data {
-            data()
-            programArgs "--all", "--mod", "${project.mod_id}"
-            programArgs "--output", generatedResources.absolutePath
-            programArgs "--existing", file("src/main/resources").absolutePath
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            args '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods {
+                "${project.mod_id}" {
+                    source sourceSets.main
+                }
+            }
         }
     }
 }
 
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
 repositories {
     maven {
         name = 'ParchmentMC'
-        url = 'https://maven.parchmentmc.org'
+        url  = 'https://maven.parchmentmc.org'
     }
 
     maven {
         name = 'GeckoLib'
-        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        url  = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
     }
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    //mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    mappings loom.layered() {
-        officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-${project.minecraft_version}:2023.07.16@zip")
-    }
-    forge "net.minecraftforge:forge:${project.forge_version}"
+    minecraft "net.minecraftforge:forge:$minecraft_version-$forge_version"
 
-    modImplementation "software.bernie.geckolib:geckolib-forge-1.20.1:4.2.1"
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:4.2.1")
 }
 
+def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+def replaceProperties = [
+        minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+        forge_version: forge_version, forge_version_range: forge_version_range,
+        loader_version_range: loader_version_range,
+        modid: project.mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+        mod_authors: mod_authors, mod_description: mod_description
+]
 processResources {
-    inputs.property "version", project.version
+    inputs.properties replaceProperties
+    replaceProperties.put 'project', project
 
-    filesMatching("META-INF/mods.toml") {
-        expand "version": project.version
+    filesMatching(resourceTargets) {
+        expand replaceProperties
     }
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-    options.release = 17
-}
-
-java {
-    withSourcesJar()
 }
 
 jar {
-    // add some additional metadata to the jar manifest
     manifest {
         attributes([
                 "Specification-Title"     : project.mod_id,
-                "Specification-Vendor"    : project.mod_author,
-                "Specification-Version"   : "1",
+                "Specification-Vendor"    : mod_authors,
+                "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
-                "Implementation-Version"  : version,
-                "Implementation-Vendor"   : project.mod_author,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : mod_authors,
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
 
-// configure the maven publication
+jar.finalizedBy('reobfJar')
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            from components.java
+            artifact jar
         }
     }
-
-    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
-        // Add repositories to publish to here.
-        // Notice: This block does NOT have the same function as the block in the top level.
-        // The repositories here will be used for publishing your artifact, not for
-        // retrieving dependencies.
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }

@@ -4,7 +4,7 @@ license="MIT"
 
 [[mods]]
 modId="cobreacy"
-version="${version}"
+version="${mod_version}"
 displayName="Cobreacy"
 authors="HO-Artisan"
 description='''
@@ -12,15 +12,15 @@ Cobreacy
 '''
 
 [[dependencies.cobreacy]]
-   modId="forge"
-   mandatory=true
-   versionRange="[47,)"
-   ordering="NONE"
-   side="BOTH"
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
 
 [[dependencies.cobreacy]]
-   modId="minecraft"
-   mandatory=true
-   versionRange="[1.20,)"
-   ordering="NONE"
-   side="BOTH"
+modId="minecraft"
+mandatory=true
+versionRange="[1.20,)"
+ordering="NONE"
+side="BOTH"
