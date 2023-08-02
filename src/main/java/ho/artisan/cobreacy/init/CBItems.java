@@ -3,11 +3,8 @@ package ho.artisan.cobreacy.init;
 import ho.artisan.cobreacy.Cobreacy;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -75,7 +72,7 @@ public class CBItems {
         CREBLANK_FLUID_BUCKET = registerBucketItem("creblank_fluid_bucket", () -> new Item(new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
         EMPTY_SACK = registryStack1Item("empty_sack");
 
-        MILLING_STONE = registerBlockItem("milling_stone", CBBlocks.MILLING_STONE, new Item.Properties());
+        MILLING_STONE = registerBlockItem("milling_stone", () -> new BlockItem(CBBlocks.MILLING_STONE.get(), new Item.Properties()));
     }
 
     public static RegistryObject<Item> registerItem(String id, Supplier<Item> supplier) {
@@ -95,7 +92,7 @@ public class CBItems {
         return ITEMS.register(id, () -> new Item(new Item.Properties().stacksTo(1)));
     }
 
-    public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Item.Properties properties) {
-        return ITEMS.register(id, () -> new BlockItem(block.get(), properties));
+    public static RegistryObject<BlockItem> registerBlockItem(String id, Supplier<BlockItem> supplier) {
+        return ITEMS.register(id, supplier);
     }
 }
