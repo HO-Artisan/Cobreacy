@@ -28,7 +28,7 @@ public class Cobreacy {
         CBBlockEntityTypes.BLOCK_ENTITY_TYPE.register(bus);
         CBRecipeTypes.RECIPE_TYPES.register(bus);
         CBRecipeSerializers.RECIPE_SERIALIZERS.register(bus);
-        CBTabs.TABS.register(bus);
+        //CBTabs.TABS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
