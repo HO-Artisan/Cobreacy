@@ -136,11 +136,9 @@ public class MillingStoneRecipe implements Recipe<MillingStoneBlockEntity> {
         @Override
         public void toNetwork(FriendlyByteBuf buffer, MillingStoneRecipe recipe) {
             buffer.writeVarInt(recipe.input.length);
-            ArrayIterator var3 = new ArrayIterator(recipe.input);
 
-            while(var3.hasNext()) {
-                Ingredient ingredient = (Ingredient)var3.next();
-                ingredient.toNetwork(buffer);
+            for (Ingredient i : recipe.input) {
+                i.toNetwork(buffer);
             }
 
             buffer.writeItem(recipe.output);
